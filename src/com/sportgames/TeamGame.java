@@ -1,11 +1,9 @@
 package com.sportgames;
 
-public class TeamGame extends SportsGame{
+public abstract class TeamGame extends SportsGame{
 
     public String team1 = "team name1";
     public String team2 = "team name2";
-
-
 
     public TeamGame(){}
 

@@ -1,10 +1,17 @@
 package com.sportgames;
 
-public class SportsGame extends Game {
+public abstract class SportsGame extends Game implements IPlayable {
     public int duration = 0;
 
     private int score1 = 0;
     private int score2 = 0;
+
+    public SportsGame(){}
+
+    public SportsGame(int duration)
+    {
+        this.duration = duration;
+    }
 
     public int getScore1() {
         return score1;
@@ -22,11 +29,12 @@ public class SportsGame extends Game {
         this.score2 = score2;
     }
 
-    public SportsGame(){}
-
-    public SportsGame(int duration)
-    {
-        this.duration = duration;
+    @Override
+    public void play() {
+        System.out.println("A game of " + this.getName() + " was played");
     }
+
+    public abstract String getName();
+
 }
 

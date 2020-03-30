@@ -1,10 +1,15 @@
-package com.sportgames;
+package com.main;
+
+import com.sportgames.Football;
+import com.sportgames.Tennis;
 
 public class Executor {
 
     public static void main(String[] args)
     {
         Football football = new Football("Arsenal", "Manchester");
+
+        football.play();
 
         football.setScore1(2);
         football.setScore2(1);
@@ -15,9 +20,11 @@ public class Executor {
 
         Tennis tennis = new Tennis("N. Djokovic", "R. Nadal");
 
+        tennis.play();
+
         tennis.setScore2(2);
 
-        System.out.println(tennis.player1+ " - " + tennis.player2);
+        System.out.println(tennis.getPlayer1()+ " - " + tennis.getPlayer2());
         System.out.println("Score: " + tennis.getScore1() + ":" + tennis.getScore2());
     }
 
