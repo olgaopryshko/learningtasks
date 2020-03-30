@@ -10,4 +10,9 @@ public class Basketball extends TeamGame {
     public Basketball(String team1, String team2){
         this.duration = 40;
     }
+
+    @Override
+    public String getName() {
+        return "Basketball";
+    }
 }
