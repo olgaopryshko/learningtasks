@@ -7,7 +7,7 @@ public class TeamGame extends SportsGame {
     public TeamGame() {
     }
 
-    public final int numTeams = 2;
+    public final int NUM_TEAMS = 2;
 
     public TeamGame(Team team1, Team team2) {
         super();
