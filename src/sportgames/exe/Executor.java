@@ -1,39 +1,30 @@
 package sportgames.exe;
 
-import sportgames.Olympics;
-import sportgames.participants.Person;
-import sportgames.individual.Tennis;
-import sportgames.participants.Team;
-import sportgames.team.Football;
+import sportgames.Schedule;
+import sportgames.Weekday;
+import sportgames.base.SportsGame;
 
 public class Executor {
 
-    public static void main(String[] args)
-    {
-        Olympics olympics = new Olympics();
+    public static void main(String[] args) {
+        Weekday day = Weekday.FRIDAY;
 
-        Person tennisPlayer1 = new Person("Yevgeny", "Kafelnikov");
-        Person tennisPlayer2 = new Person("Andre", "Agassi");
+        SportsGame game = Schedule.scheduleGame(day);
 
-        Tennis tennis = new Tennis(tennisPlayer1, tennisPlayer2);
+        game.setScore1(3);
+        game.setScore2(2);
 
-        tennis.setScore1(1);
-        tennis.setScore2(2);
+        game.play();
 
-        olympics.setGame(tennis);
-        olympics.playGame();
+        day = Weekday.SATURDAY;
 
-        Team footballTeam1 = new Team("PSG");
-        Team footballTeam2 = new Team("Juventus");
+        game = Schedule.scheduleGame(day);
+        game.setScore1(1);
+        game.setScore2(1);
 
-        Football football = new Football(footballTeam1,footballTeam2);
-
-        football.setScore1(3);
-        football.setScore2(2);
-
-        olympics.setGame(football);
-        olympics.playGame();
+        game.play();
 
     }
+
 
 }

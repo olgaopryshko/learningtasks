@@ -7,6 +7,8 @@ public class TeamGame extends SportsGame {
     public TeamGame() {
     }
 
+    public final int numTeams = 2;
+
     public TeamGame(Team team1, Team team2) {
         super();
         this.player1 = team1;
