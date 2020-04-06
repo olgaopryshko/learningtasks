@@ -13,6 +13,7 @@ public class Olympics {
         this.game = game;
     }
 
+
     public void playGame() {
         game.play();
     }

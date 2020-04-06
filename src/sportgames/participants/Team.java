@@ -1,6 +1,6 @@
 package sportgames.participants;
 
-public class Team implements IParticipant {
+public final class Team implements IParticipant {
 
     private String name;
 
