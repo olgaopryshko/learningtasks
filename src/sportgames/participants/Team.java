@@ -1,8 +1,6 @@
 package sportgames.participants;
 
-import sportgames.team.Football;
-
-public final class Team extends Football implements IParticipant {
+public final class Team implements IParticipant {
 
     private String name;
 
