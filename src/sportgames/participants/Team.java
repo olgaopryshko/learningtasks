@@ -1,6 +1,8 @@
 package sportgames.participants;
 
-public final class Team implements IParticipant {
+import sportgames.team.Football;
+
+public final class Team extends Football implements IParticipant {
 
     private String name;
 
@@ -19,5 +21,6 @@ public final class Team implements IParticipant {
     public String getName() {
         return name;
     }
+
 }
 
