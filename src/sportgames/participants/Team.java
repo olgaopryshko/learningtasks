@@ -19,5 +19,6 @@ public final class Team implements IParticipant {
     public String getName() {
         return name;
     }
+
 }
 
