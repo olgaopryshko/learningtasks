@@ -37,6 +37,7 @@ public class SportsGame extends Game implements IPlayable {
         System.out.println("A game of " + gameName + " was played");
         System.out.println(player1.getName() + " vs " + player2.getName());
         System.out.println("Score: " + score1 + "-" + score2);
+        this.gameOver();
     }
 
 

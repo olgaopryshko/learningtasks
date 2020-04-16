@@ -5,7 +5,8 @@ public final class Person implements IParticipant {
     private String firstName;
     private String lastName;
 
-    public Person() {
+    public Person(String name) {
+        this.lastName = name;
     }
 
     public Person(String firstName, String lastName) {
@@ -32,6 +33,14 @@ public final class Person implements IParticipant {
 
     @Override
     public String getName() {
+        if (firstName == null) {
+            return lastName;
+        }
         return firstName + " " + lastName;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

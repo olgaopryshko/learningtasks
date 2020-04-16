@@ -20,5 +20,9 @@ public final class Team implements IParticipant {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
 
