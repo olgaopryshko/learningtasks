@@ -1,5 +1,6 @@
 package sportgames.team;
 
+import com.sun.source.tree.UsesTree;
 import sportgames.participants.Team;
 
 import java.util.*;
@@ -9,11 +10,37 @@ public class TeamList {
     List<Team> listBasketballTeams;
     List<Team> listFootballTeams;
     List<Team> listHockeyTeams;
+    Map<String, List<Team>> mapCollections;
+
+    List<? extends Team> listOfTeams;
 
     public TeamList() {
         listBasketballTeams = new ArrayList<>();
         listFootballTeams = new LinkedList<>();
         listHockeyTeams = new LinkedList<>();
+        mapCollections = new HashMap<String, List<Team>>();
+
+        mapCollections.put("football", listFootballTeams);
+        mapCollections.put("basketball", listBasketballTeams);
+        mapCollections.put("hockey", listHockeyTeams);
+    }
+
+    /**
+     * Print all teams playing all sports
+     */
+    public void printAllTeams() {
+        for (String sport :
+                mapCollections.keySet()) {
+            System.out.println("Teams playing " + sport + ":");
+            List<?> list = mapCollections.get(sport);
+            if (list.size() == 0) {
+                System.out.println("[none]");
+            } else {
+                for (Object team : list) {
+                    System.out.println(team.toString());
+                }
+            }
+        }
     }
 
 
