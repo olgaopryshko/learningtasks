@@ -31,6 +31,7 @@ public class Menu {
 
     /**
      * Read the first and last name from the user and return a new Person object.
+     *
      * @return null if no first name entered, a Person instance otherwise.
      * @throws NoLastNameException
      */
@@ -42,7 +43,7 @@ public class Menu {
         }
         System.out.println("Enter player last name:");
         String lastName = scanner.next();
-        if (lastName.equals("")){
+        if (lastName.equals("")) {
             throw new NoLastNameException();
         }
         return new Person(firstName, lastName);
@@ -186,7 +187,7 @@ public class Menu {
                 case 1: //Football
                     System.out.println("Enter index (0-" + (teamList.getListFootballTeams().size() - 1) + ")");
                     index = scanner.nextInt();
-                    teamList.removeFootballTeam(index); /////// NoSuchElementException  - to do such an exception in the method
+                    teamList.removeFootballTeam(index);
                     break;
                 case 2: //Basketball
                     System.out.println("Enter index (0-" + (teamList.getListBasketballTeams().size() - 1) + ")");
