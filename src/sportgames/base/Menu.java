@@ -5,9 +5,7 @@ import sportgames.participants.Person;
 import sportgames.participants.Team;
 import sportgames.team.TeamList;
 
-import java.util.Collection;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Menu {
 
@@ -31,90 +29,120 @@ public class Menu {
         }
     }
 
+    /**
+     * Read the first and last name from the user and return a new Person object.
+     *
+     * @return null if no first name entered, a Person instance otherwise.
+     * @throws NoLastNameException
+     */
+    public Person inputPerson() throws NoLastNameException {
+        System.out.println("Enter player first name (Empty = stop):");
+        String firstName = scanner.next();
+        if (firstName.equals("")) {
+            return null;
+        }
+        System.out.println("Enter player last name:");
+        String lastName = scanner.next();
+        if (lastName.equals("")) {
+            throw new NoLastNameException();
+        }
+        return new Person(firstName, lastName);
+    }
+
 
     public void run() {
-        while (true) {
-            System.out.println("Choose an action: 1 - Enter data; 2 - Print data; 3 - Delete data");
-            System.out.println("Any other number - exit program");
-            int action = scanner.nextInt();
+        try {
 
-            switch (action) {
-                case 1:
-                    enterData();
-                    break;
-                case 2:
-                    printData();
-                    break;
-                case 3:
-                    deleteData();
-                    break;
-                default:
-                    System.out.println("Goodbye!");
-                    scanner.close();
-                    return;
+            while (true) {
+                System.out.println("Choose an action: 1 - Enter data; 2 - Print data; 3 - Delete data");
+                System.out.println("Any other number - exit program");
+                int action = scanner.nextInt();
+
+                switch (action) {
+                    case 1:
+                        enterData();
+                        break;
+                    case 2:
+                        printData();
+                        break;
+                    case 3:
+                        deleteData();
+                        break;
+                    default:
+                        System.out.println("Goodbye!");
+                        return;
+                }
             }
+        } catch (InputMismatchException e) {
+            System.out.println("Please, select a number!");
+        } finally {
+            scanner.close();
         }
     }
+
 
     public void enterData() {
         System.out.println("Choose a game: 1 - Football; 2 - Basketball; 3 - Hockey; 4 - Tennis; 5 - Badminton;");
         int gameChoice = scanner.nextInt();
 
-        switch (gameChoice) {
-            case 1: //Football
-                while (true) {
-                    System.out.println("Enter team name (Empty = stop):");
-                    String name = scanner.next();
-                    if (name.equals("")) {
-                        break;
+        try {
+            switch (gameChoice) {
+                case 1: //Football
+                    while (true) {
+                        System.out.println("Enter team name (Empty = stop):");
+                        String name = scanner.next();
+                        if (name.equals("")) {
+                            break;
+                        }
+                        teamList.addFootballTeam(new Team(name));
                     }
-                    teamList.addFootballTeam(new Team(name));
-                }
-                break;
-            case 2: //Basketball
-                while (true) {
-                    System.out.println("Enter team name (Empty = stop):");
-                    String name = scanner.next();
-                    if (name.equals("")) {
-                        break;
+                    break;
+                case 2: //Basketball
+                    while (true) {
+                        System.out.println("Enter team name (Empty = stop):");
+                        String name = scanner.next();
+                        if (name.equals("")) {
+                            break;
+                        }
+                        teamList.addBasketballTeam(new Team(name));
                     }
-                    teamList.addBasketballTeam(new Team(name));
-                }
-                break;
-            case 3: //Hockey
-                while (true) {
-                    System.out.println("Enter team name (Empty = stop):");
-                    String name = scanner.next();
-                    if (name.equals("")) {
-                        break;
+                    break;
+                case 3: //Hockey
+                    while (true) {
+                        System.out.println("Enter team name (Empty = stop):");
+                        String name = scanner.next();
+                        if (name.equals("")) {
+                            break;
+                        }
+                        teamList.addHockeyTeam(new Team(name));
                     }
-                    teamList.addHockeyTeam(new Team(name));
-                }
-                break;
-            case 4: //Tennis
-                while (true) {
-                    System.out.println("Enter player name (Empty = stop):");
-                    String name = scanner.next();
-                    if (name.equals("")) {
-                        break;
+                    break;
+                case 4: //Tennis
+                    while (true) {
+                        Person person = inputPerson();
+                        if (person == null) {
+                            break;
+                        }
+                        personList.addTennisPlayer(person);
                     }
-                    personList.addTennisPlayer(new Person(name));
-                }
-                break;
-            case 5: //Badminton
-                while (true) {
-                    System.out.println("Enter player name (Empty = stop):");
-                    String name = scanner.next();
-                    if (name.equals("")) {
-                        break;
+                    break;
+                case 5: //Badminton
+                    while (true) {
+                        Person person = inputPerson();
+                        if (person == null) {
+                            break;
+                        }
+                        personList.addBadmintonPlayer(person);
                     }
-                    personList.addBadmintonPlayer(new Person(name));
-                }
-                break;
-            default:
-                System.out.println("Invalid input!");
-
+                    break;
+                default:
+                    System.out.println("Invalid input!");
+            }
+        } catch (NoLastNameException e) {
+            System.out.println(e.getMessage());
         }
+
+
     }
 
     public void printData() {
@@ -152,40 +180,51 @@ public class Menu {
         System.out.println("Choose a game: 1 - Football; 2 - Basketball; 3 - Hockey; 4 - Tennis; 5 - Badminton");
         int gameChoice = scanner.nextInt();
         int index;
-        String name;
+        String firstName;
+        String lastName;
+        try {
+            switch (gameChoice) {
+                case 1: //Football
+                    System.out.println("Enter index (0-" + (teamList.getListFootballTeams().size() - 1) + ")");
+                    index = scanner.nextInt();
+                    teamList.removeFootballTeam(index);
+                    break;
+                case 2: //Basketball
+                    System.out.println("Enter index (0-" + (teamList.getListBasketballTeams().size() - 1) + ")");
+                    index = scanner.nextInt();
+                    teamList.removeBasketballTeam(index);
+                    break;
+                case 3: //Hockey
+                    System.out.println("Enter index (0-" + (teamList.getListHockeyTeams().size() - 1) + ")");
+                    index = scanner.nextInt();
+                    teamList.removeHockeyTeam(index);
+                    break;
+                case 4: //Tennis
+                    System.out.println("Enter player's first name");
+                    firstName = scanner.next();
+                    System.out.println("Enter player's last name");
+                    lastName = scanner.next();
+                    personList.removeTennisPlayer(new Person(firstName, lastName));
+                    break;
+                case 5: //Badminton
+                    System.out.println("Enter player's first name");
+                    firstName = scanner.next();
+                    System.out.println("Enter player's last name");
+                    lastName = scanner.next();
+                    personList.removeBadmintonPlayer(new Person(firstName, lastName));
+                    break;
+                default:
+                    System.out.println("Invalid input!");
 
-        switch (gameChoice) {
-            case 1: //Football
-                System.out.println("Enter index (0-" + (teamList.getListFootballTeams().size() - 1) + ")");
-                index = scanner.nextInt();
-                teamList.removeFootballTeam(index);
-                break;
-            case 2: //Basketball
-                System.out.println("Enter index (0-" + (teamList.getListBasketballTeams().size() - 1) + ")");
-                index = scanner.nextInt();
-                teamList.removeBasketballTeam(index);
-                break;
-            case 3: //Hockey
-                System.out.println("Enter index (0-" + (teamList.getListHockeyTeams().size() - 1) + ")");
-                index = scanner.nextInt();
-                teamList.removeHockeyTeam(index);
-                break;
-            case 4: //Tennis
-                System.out.println("Enter player's name");
-                name = scanner.next();
-                personList.removeTennisPlayer(new Person(name));
-                break;
-            case 5: //Badminton
-                System.out.println("Enter player's name");
-                name = scanner.next();
-                personList.removeBadmintonPlayer(new Person(name));
-                break;
-            default:
-                System.out.println("Invalid input!");
-
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter a number!");
+            scanner.next();
+        } catch (IndexOutOfBoundsException | NoSuchElementException e) {
+            System.out.println("There's no such index");
         }
+
+
     }
-
-
 }
 

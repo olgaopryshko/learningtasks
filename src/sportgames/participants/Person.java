@@ -5,9 +5,6 @@ public final class Person implements IParticipant {
     private String firstName;
     private String lastName;
 
-    public Person(String name) {
-        this.lastName = name;
-    }
 
     public Person(String firstName, String lastName) {
         super();
