@@ -1,4 +1,4 @@
-package sportgames.base;
+package sportgames.exceptions;
 
 public class NoLastNameException extends Exception {
     @Override

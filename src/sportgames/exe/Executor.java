@@ -1,6 +1,6 @@
 package sportgames.exe;
 
-import sportgames.base.Menu;
+import sportgames.menu.Menu;
 
 public class Executor {
 

@@ -1,5 +1,10 @@
-package sportgames.base;
+package sportgames.menu;
 
+import sportgames.Schedule;
+import sportgames.Weekday;
+import sportgames.base.SportsGame;
+import sportgames.exceptions.NoLastNameException;
+import sportgames.exceptions.NotEnoughParticipantsException;
 import sportgames.individual.PersonList;
 import sportgames.participants.Person;
 import sportgames.participants.Team;
@@ -12,6 +17,7 @@ public class Menu {
     private TeamList teamList = new TeamList();
     private PersonList personList = new PersonList();
     private Scanner scanner = new Scanner(System.in).useDelimiter("\\n");
+    private Schedule schedule = new Schedule(personList, teamList);
 
     public void printTeams(Collection<Team> teams) {
         System.out.println("Total teams: " + teams.size());
@@ -22,7 +28,7 @@ public class Menu {
     }
 
     private void printPersons(Set<Person> personSet) {
-        System.out.println("Total ahtletes: " + personSet.size());
+        System.out.println("Total athletes: " + personSet.size());
         for (Person t :
                 personSet) {
             System.out.println(t.getName());
@@ -49,12 +55,11 @@ public class Menu {
         return new Person(firstName, lastName);
     }
 
-
     public void run() {
         try {
 
             while (true) {
-                System.out.println("Choose an action: 1 - Enter data; 2 - Print data; 3 - Delete data");
+                System.out.println("Choose an action: 1 - Enter data; 2 - Print data; 3 - Delete data; 4 - Play a random game;");
                 System.out.println("Any other number - exit program");
                 int action = scanner.nextInt();
 
@@ -68,6 +73,10 @@ public class Menu {
                     case 3:
                         deleteData();
                         break;
+                    case 4:
+                        playRandomGame();
+                        System.out.println("Total games played: "+ SportsGame.getTotalGamesPlayed());
+                        break;
                     default:
                         System.out.println("Goodbye!");
                         return;
@@ -78,6 +87,22 @@ public class Menu {
         } finally {
             scanner.close();
         }
+    }
+
+    private void playRandomGame() {
+        Weekday[] weekdays = Weekday.values();
+        Weekday randomDay = weekdays[new Random().nextInt(weekdays.length)];
+        try {
+            SportsGame game = schedule.scheduleGame(randomDay);
+            game.setRandomScore();
+            game.play();
+        } catch (NotEnoughParticipantsException e) {
+            System.out.println("Game was not played: " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("No games played on " + randomDay);
+        }
+
+
     }
 
 

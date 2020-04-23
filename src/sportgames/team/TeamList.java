@@ -1,6 +1,5 @@
 package sportgames.team;
 
-import com.sun.source.tree.UsesTree;
 import sportgames.participants.Team;
 
 import java.util.*;
@@ -12,13 +11,11 @@ public class TeamList {
     List<Team> listHockeyTeams;
     Map<String, List<Team>> mapCollections;
 
-    List<? extends Team> listOfTeams;
-
     public TeamList() {
         listBasketballTeams = new ArrayList<>();
         listFootballTeams = new LinkedList<>();
         listHockeyTeams = new LinkedList<>();
-        mapCollections = new HashMap<String, List<Team>>();
+        mapCollections = new HashMap<>();
 
         mapCollections.put("football", listFootballTeams);
         mapCollections.put("basketball", listBasketballTeams);
