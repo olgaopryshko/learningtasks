@@ -1,6 +1,7 @@
 package sportgames.team;
 
 import sportgames.participants.Team;
+import sportgames.utils.FileRW;
 
 import java.util.*;
 
@@ -40,6 +41,51 @@ public class TeamList {
         }
     }
 
+    private List<Team> readTeamsFromFile(String filePath) {
+        List<String> lines = FileRW.readFile(filePath);
+        List<Team> result = new ArrayList<>();
+        for (String line : lines) {
+            Team team = new Team(line);
+            result.add(team);
+        }
+        return result;
+    }
+
+    public void readFootballTeamsFromFile(String filePath) {
+        List<Team> teams = readTeamsFromFile(filePath);
+        listFootballTeams.addAll(teams);
+    }
+
+    public void readHockeyTeamsFromFile(String filePath) {
+        List<Team> teams = readTeamsFromFile(filePath);
+        listHockeyTeams.addAll(teams);
+    }
+
+    public void readBasketballTeamsFromFile(String filePath) {
+        List<Team> teams = readTeamsFromFile(filePath);
+        listBasketballTeams.addAll(teams);
+    }
+
+
+    private void saveTeamsToFile(String filePath, List<Team> teams) {
+        List<String> lines = new ArrayList<>();
+        for (Team team : teams) {
+            lines.add(team.getName());
+        }
+        FileRW.writeFile(filePath, lines);
+    }
+
+    public void saveFootballTeamsToFile(String filePath) {
+        saveTeamsToFile(filePath, getListFootballTeams());
+    }
+
+    public void saveBasketballTeamsToFile(String filePath) {
+        saveTeamsToFile(filePath, getListBasketballTeams());
+    }
+
+    public void saveHockeyTeamsToFile(String filePath) {
+        saveTeamsToFile(filePath, getListHockeyTeams());
+    }
 
     public void addFootballTeam(Team team) {
         listFootballTeams.add(team);

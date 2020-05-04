@@ -9,6 +9,7 @@ import sportgames.individual.PersonList;
 import sportgames.participants.Person;
 import sportgames.participants.Team;
 import sportgames.team.TeamList;
+import sportgames.utils.PropertiesRW;
 
 import java.util.*;
 
@@ -39,19 +40,23 @@ public class Menu {
      * Read the first and last name from the user and return a new Person object.
      *
      * @return null if no first name entered, a Person instance otherwise.
-     * @throws NoLastNameException
      */
-    public Person inputPerson() throws NoLastNameException {
+    private Person inputPerson() {
         System.out.println("Enter player first name (Empty = stop):");
         String firstName = scanner.next();
         if (firstName.equals("")) {
             return null;
         }
-        System.out.println("Enter player last name:");
-        String lastName = scanner.next();
-        if (lastName.equals("")) {
-            throw new NoLastNameException();
+        String lastName;
+        while (true) {
+            System.out.println("Enter player last name:");
+            lastName = scanner.next();
+            if (!lastName.equals("")) {
+                break;
+            }
+            System.out.println("Please enter the last name!");
         }
+
         return new Person(firstName, lastName);
     }
 
@@ -60,6 +65,8 @@ public class Menu {
 
             while (true) {
                 System.out.println("Choose an action: 1 - Enter data; 2 - Print data; 3 - Delete data; 4 - Play a random game;");
+                System.out.println("5 - Read data from file; 6 - Save data to file;");
+                System.out.println("7 - Load property value; 8 - Save property value;");
                 System.out.println("Any other number - exit program");
                 int action = scanner.nextInt();
 
@@ -75,7 +82,19 @@ public class Menu {
                         break;
                     case 4:
                         playRandomGame();
-                        System.out.println("Total games played: "+ SportsGame.getTotalGamesPlayed());
+                        System.out.println("Total games played: " + SportsGame.getTotalGamesPlayed());
+                        break;
+                    case 5:
+                        loadData();
+                        break;
+                    case 6:
+                        saveData();
+                        break;
+                    case 7:
+                        loadProperty();
+                        break;
+                    case 8:
+                        saveProperty();
                         break;
                     default:
                         System.out.println("Goodbye!");
@@ -86,6 +105,75 @@ public class Menu {
             System.out.println("Please, select a number!");
         } finally {
             scanner.close();
+        }
+    }
+
+    private void saveProperty() {
+        System.out.println("Property name:");
+        String propertyName = scanner.next();
+        System.out.println("Property value:");
+        String propertyValue = scanner.next();
+        System.out.println("Properties file path:");
+        String path = scanner.next();
+        PropertiesRW.saveProperty(path, propertyName, propertyValue);
+    }
+
+    private void loadProperty() {
+        System.out.println("Enter property name");
+        String propertyName = scanner.next();
+        System.out.println("Enter property file path");
+        String path = scanner.next();
+        String property = PropertiesRW.loadProperty(path, propertyName);
+        System.out.println(property);
+
+    }
+
+    private void loadData() {
+        System.out.println("Choose a game: 1 - Football; 2 - Basketball; 3 - Hockey; 4 - Tennis; 5 - Badminton;");
+        int gameChoice = scanner.nextInt();
+        System.out.println("Enter file path:");
+        String filePath = scanner.next();
+        switch (gameChoice) {
+            case 1: // Football
+                teamList.readFootballTeamsFromFile(filePath);
+                break;
+            case 2: //Basketball
+                teamList.readBasketballTeamsFromFile(filePath);
+                break;
+            case 3: // Hockey
+                teamList.readHockeyTeamsFromFile(filePath);
+                break;
+            case 4: // Tennis
+                throw new RuntimeException("Not implemented yet");
+            case 5: // Badminton
+                throw new RuntimeException("Not implemented yet");
+            default:
+                System.out.println("Invalid input!");
+        }
+    }
+
+    private void saveData() {
+        System.out.println("Choose a game: 1 - Football; 2 - Basketball; 3 - Hockey; 4 - Tennis; 5 - Badminton;");
+        int gameChoice = scanner.nextInt();
+        System.out.println("Enter file path:");
+        String filePath = scanner.next();
+        switch (gameChoice) {
+            case 1: // Football
+                teamList.saveFootballTeamsToFile(filePath);
+                break;
+            case 2: //Basketball
+                teamList.saveBasketballTeamsToFile(filePath);
+                break;
+            case 3: // Hockey
+                teamList.saveHockeyTeamsToFile(filePath);
+                break;
+            case 4: // Tennis
+                throw new RuntimeException("Not implemented yet");
+            case 5: // Badminton
+                throw new RuntimeException("Not implemented yet");
+            default:
+                System.out.println("Invalid input!");
+
         }
     }
 
@@ -110,61 +198,57 @@ public class Menu {
         System.out.println("Choose a game: 1 - Football; 2 - Basketball; 3 - Hockey; 4 - Tennis; 5 - Badminton;");
         int gameChoice = scanner.nextInt();
 
-        try {
-            switch (gameChoice) {
-                case 1: //Football
-                    while (true) {
-                        System.out.println("Enter team name (Empty = stop):");
-                        String name = scanner.next();
-                        if (name.equals("")) {
-                            break;
-                        }
-                        teamList.addFootballTeam(new Team(name));
+        switch (gameChoice) {
+            case 1: //Football
+                while (true) {
+                    System.out.println("Enter team name (Empty = stop):");
+                    String name = scanner.next();
+                    if (name.equals("")) {
+                        break;
                     }
-                    break;
-                case 2: //Basketball
-                    while (true) {
-                        System.out.println("Enter team name (Empty = stop):");
-                        String name = scanner.next();
-                        if (name.equals("")) {
-                            break;
-                        }
-                        teamList.addBasketballTeam(new Team(name));
+                    teamList.addFootballTeam(new Team(name));
+                }
+                break;
+            case 2: //Basketball
+                while (true) {
+                    System.out.println("Enter team name (Empty = stop):");
+                    String name = scanner.next();
+                    if (name.equals("")) {
+                        break;
                     }
-                    break;
-                case 3: //Hockey
-                    while (true) {
-                        System.out.println("Enter team name (Empty = stop):");
-                        String name = scanner.next();
-                        if (name.equals("")) {
-                            break;
-                        }
-                        teamList.addHockeyTeam(new Team(name));
+                    teamList.addBasketballTeam(new Team(name));
+                }
+                break;
+            case 3: //Hockey
+                while (true) {
+                    System.out.println("Enter team name (Empty = stop):");
+                    String name = scanner.next();
+                    if (name.equals("")) {
+                        break;
                     }
-                    break;
-                case 4: //Tennis
-                    while (true) {
-                        Person person = inputPerson();
-                        if (person == null) {
-                            break;
-                        }
-                        personList.addTennisPlayer(person);
+                    teamList.addHockeyTeam(new Team(name));
+                }
+                break;
+            case 4: //Tennis
+                while (true) {
+                    Person person = inputPerson();
+                    if (person == null) {
+                        break;
                     }
-                    break;
-                case 5: //Badminton
-                    while (true) {
-                        Person person = inputPerson();
-                        if (person == null) {
-                            break;
-                        }
-                        personList.addBadmintonPlayer(person);
+                    personList.addTennisPlayer(person);
+                }
+                break;
+            case 5: //Badminton
+                while (true) {
+                    Person person = inputPerson();
+                    if (person == null) {
+                        break;
                     }
-                    break;
-                default:
-                    System.out.println("Invalid input!");
-            }
-        } catch (NoLastNameException e) {
-            System.out.println(e.getMessage());
+                    personList.addBadmintonPlayer(person);
+                }
+                break;
+            default:
+                System.out.println("Invalid input!");
         }
 
 
