@@ -1,0 +1,76 @@
+<FC_Barcelona>
+    <Team division="First team">
+    <Coach>
+        <Name>Quique Setién </Name>
+        <DateOfBirth>27.09.1958</DateOfBirth>
+        <PlaceOfBirth>Santander, Spain</PlaceOfBirth>
+        <StartInBarcelona>14.01.2020</StartInBarcelona>
+    </Coach>
+    <Player number="1">
+        <Name>Marc-André ter Stegen</Name>
+            <position>goalkeeper</position>
+            <DateOfBirth></DateOfBirth>
+            <PlaceOfBirth>Mönchengladbach, Germany</PlaceOfBirth>
+            <ClubDebut>17.09.2014</ClubDebut>
+    </Player>
+    <Player number="13">
+        <Name>Norberto Murara</Name>
+        <position>goalkeeper</position>
+        <DateOfBirth>19.07.1989</DateOfBirth>
+        <PlaceOfBirth>Araxá, Brazil</PlaceOfBirth>
+        <ClubDebut></ClubDebut>
+    </Player>
+    <Player number="2">
+        <Name>Nélson Cabral Semedo</Name>
+        <position>defender</position>
+        <DateOfBirth>16.11.1993</DateOfBirth>
+        <PlaceOfBirth>Lisboa, Portugal</PlaceOfBirth>
+        <ClubDebut>16.08.2017</ClubDebut>
+    </Player>
+    <Player number="3">
+        <Name>Gerard Piqué</Name>
+        <position>degfender</position>
+        <DateOfBirth>02.02.1987</DateOfBirth>
+        <PlaceOfBirth>Barcelona, Spain</PlaceOfBirth>
+        <ClubDebut>13.08.2008</ClubDebut>
+    </Player>
+    <Player number="4">
+        <Name>Ivan Rakitic</Name>
+        <position>midfielder</position>
+        <DateOfBirth>10.03.1988</DateOfBirth>
+        <PlaceOfBirth>Rheinfelden, Switzerland</PlaceOfBirth>
+        <ClubDebut>24.08.2014</ClubDebut>
+    </Player>
+    <Player number="5">
+        <Name>Sergio Busquet</Name>
+        <position>midfielder</position>
+        <DateOfBirth>16.07.1988</DateOfBirth>
+        <PlaceOfBirth>Sabadell, Spain</PlaceOfBirth>
+        <ClubDebut>13.09.2008</ClubDebut>
+    </Player>
+    <Player number="9">
+        <Name>Luis Suárez</Name>
+        <position>forward</position>
+        <DateOfBirth>24.01.1987</DateOfBirth>
+        <PlaceOfBirth>Salto, Uruguay</PlaceOfBirth>
+        <ClubDebut>25.10.2014</ClubDebut>
+    </Player>
+    <Player number="10">
+        <Name>Leo Messi </Name>
+        <position>forward</position>
+        <DateOfBirth>24.06.1987</DateOfBirth>
+        <PlaceOfBirth>Rosario, Argentina</PlaceOfBirth>
+        <ClubDebut>16.10.2014</ClubDebut>
+    </Player>
+    <Player number="11">
+        <Name>Ousmane Dembélé</Name>
+        <position>forward</position>
+        <DateOfBirth>15.05.1997</DateOfBirth>
+        <PlaceOfBirth>Vernon, France</PlaceOfBirth>
+        <ClubDebut>09.09.2017</ClubDebut>
+    </Player>
+</Team>
+    <Team division ="Women's"></Team>
+    <Team division="Barça Youth"></Team>
+
+</FC_Barcelona>

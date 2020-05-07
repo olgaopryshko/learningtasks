@@ -1,0 +1,32 @@
+<WorldRanking>
+<Player rank="1">
+    <Name>Kento MOMOTA</Name>
+    <Country>Japan</Country>
+    <Win>263</Win>
+    <Lose>72</Lose>
+</Player>
+    <Player rank="2">
+        <Name>SHI Yu Qi</Name>
+        <Country>China</Country>
+        <Win>171</Win>
+        <Lose>59</Lose>
+    </Player>
+    <Player rank="3">
+        <Name>CHOU Tien Chen</Name>
+        <Country>Taiwan</Country>
+        <Win>313</Win>
+        <Lose>177</Lose>
+    </Player>
+    <Player rank="4">
+        <Name>CHEN Long</Name>
+        <Country>China</Country>
+        <Win>398</Win>
+        <Lose>94</Lose>
+    </Player>
+    <Player rank="5">
+        <Name>SON Wan Ho</Name>
+        <Country>Korea</Country>
+        <Win>330</Win>
+        <Lose>176</Lose>
+    </Player>
+</WorldRanking>

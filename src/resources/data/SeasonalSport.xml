@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Sport>
+    <Season season="Winter">
+        <game>Hockey</game>
+        <game>Skiing</game>
+        <game>Biathlon</game>
+
+    </Season>
+
+    <Season season="Summer">
+        <game>Football</game>
+        <game>Basketball</game>
+        <game>Tennis</game>
+        <game>Badminton</game>
+
+    </Season>
+
+
+</Sport>

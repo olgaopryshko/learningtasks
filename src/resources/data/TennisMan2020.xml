@@ -1,0 +1,32 @@
+<ManRanking2020>
+    <Player rank="1">
+        <Name>Novak Djokovic</Name>
+        <Country>Serbia</Country>
+        <Age>32</Age>
+        <Points>10220</Points>
+    </Player>
+    <Player rank="2">
+        <Name>Rafael Nadal</Name>
+        <Country>Spain</Country>
+        <Age>33</Age>
+        <Points>9850</Points>
+    </Player>
+    <Player rank="3">
+        <Name>Dominic Thiem</Name>
+        <Country>Austria</Country>
+        <Age>26</Age>
+        <Points>7045</Points>
+    </Player>
+    <Player rank="4">
+        <Name>Roger Federer</Name>
+        <Country>Switzerland</Country>
+        <Age>38</Age>
+        <Points>6630</Points>
+    </Player>
+    <Player rank="5">
+        <Name>Daniil Medvedev</Name>
+        <Country>Russia</Country>
+        <Age>24</Age>
+        <Points>5890</Points>
+    </Player>
+</ManRanking2020>

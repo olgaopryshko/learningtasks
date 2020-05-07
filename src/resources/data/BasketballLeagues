@@ -1,0 +1,20 @@
+<BasketballLeague>
+    <League name = "NBA">
+        <Team>Atlanta Hawks</Team>
+        <Team>Boston Celtics</Team>
+        <Team>Brooklyn Nets</Team>
+        <Team>Charlotte Hornets</Team>
+        <Team>Chicago Bulls</Team>
+        <Team>Cleveland Cavaliers</Team>
+        <Team>Dallas Nuggets</Team>
+    </League>
+    <League>
+        <Team>Barcelona</Team>
+        <Team>Baskonia</Team>
+        <Team>Bayern</Team>
+        <Team>Alba Berlin</Team>
+        <Team>Crvena zvezda mts</Team>
+        <Team>Maccabi Tel Aviv</Team>
+        <Team>Anadolu Efes</Team>
+    </League>
+</BasketballLeague>

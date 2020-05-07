@@ -1,0 +1,40 @@
+<Liverpool>
+    <Team division="First Team">
+        <Player position="Goalkeeper">
+            <Name>Alisson Becker</Name>
+            <Number>1</Number>
+            <Signed>2018</Signed>
+            <Appearances>79</Appearances>
+        </Player>
+        <Player position="Defender">
+            <Name>Nathaniel Clyne</Name>
+            <Number>2</Number>
+            <Signed>2015</Signed>
+            <Appearances>103</Appearances>
+            <Goals>2</Goals>
+        </Player>
+        <Player position="Midfielder">
+            <Name>Fabio Henrique Tavares</Name>
+            <Number>3</Number>
+            <Signed>2018</Signed>
+            <Appearances>72</Appearances>
+            <Goals>2</Goals>
+        </Player>
+        <Player position="Forward">
+            <Name>Roberto Firmino</Name>
+            <Number>9</Number>
+            <Signed>2015</Signed>
+            <Appearances>235</Appearances>
+            <Goals>77</Goals>
+        </Player>
+        <Player position="On Loan">
+            <Name>Marko Grujic</Name>
+            <Number>16</Number>
+            <Signed>2016</Signed>
+            <Appearances>14</Appearances>
+            <Goals></Goals>
+        </Player>
+    </Team>
+    <Team division="Women"></Team>
+    <Team division="Academy"></Team>
+</Liverpool>

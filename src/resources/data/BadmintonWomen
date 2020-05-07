@@ -1,0 +1,32 @@
+<WorldRanking>
+    <Player rank="1">
+        <Name>TAI Tzu Ying</Name>
+        <Country>Taiwan</Country>
+        <Win>339</Win>
+        <Lose>136</Lose>
+    </Player>
+    <Player rank="2">
+        <Name>Nozomi OKUHARA</Name>
+        <Country>Japan</Country>
+        <Win>257</Win>
+        <Lose>82</Lose>
+    </Player>
+    <Player rank="3">
+        <Name>PUSARLA V. Sindhu</Name>
+        <Country>India</Country>
+        <Win>293</Win>
+        <Lose>120</Lose>
+    </Player>
+    <Player rank="4">
+        <Name>CHEN Yu Fei</Name>
+        <Country>China</Country>
+        <Win>159</Win>
+        <Lose>65</Lose>
+    </Player>
+    <Player rank="5">
+        <Name>Akane YAMAGUCHI</Name>
+        <Country>Japan</Country>
+        <Win>253</Win>
+        <Lose>89</Lose>
+    </Player>
+</WorldRanking>
