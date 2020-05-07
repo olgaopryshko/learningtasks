@@ -1,0 +1,29 @@
+<FootballLeague>
+    <League name="La Liga">
+        <Team>FC Barcelona</Team>
+        <Team>Real Madrid</Team>
+        <Team>Sevilla FC</Team>
+        <Team>Real Sociedad</Team>
+        <Team>Getafe CF</Team>
+        <Team>Atlético de Madrid</Team>
+        <Team>Valencia CF</Team>
+        <Team>Villarreal CF</Team>
+        <Team>Granada CF</Team>
+        <Team>Athletic Club</Team>
+    </League>
+    <League name="EPL">
+        <Team>Leicester</Team>
+        <Team>Chelsea</Team>
+        <Team>Liverpool</Team>
+        <Team>Manchester City</Team>
+        <Team>Manchester United</Team>
+        <Team>Wolves</Team>
+        <Team>Sheffield Utd</Team>
+        <Team>Spurs</Team>
+        <Team>Arsenal</Team>
+        <Team>Burnley</Team>
+        <Team>Crystal Palace</Team>
+    </League>
+
+
+</FootballLeague>

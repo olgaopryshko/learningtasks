@@ -1,0 +1,33 @@
+<WomenRanking2020>
+    <Player rank="1">
+        <Name>Ashleigh Barty</Name>
+        <Country>Australia</Country>
+        <Age>24</Age>
+        <Points>8367</Points>
+    </Player>
+    <Player rank="2">
+        <Name>Simona Halep</Name>
+        <Country>Romania</Country>
+        <Age>28</Age>
+        <Points>5796</Points>
+    </Player>
+    <Player rank="3">
+        <Name>Karolina Pliskova</Name>
+        <Country>Czechia</Country>
+        <Age>28</Age>
+        <Points>5290</Points>
+    </Player>
+    <Player rank="4">
+        <Name>Belinda Bencic</Name>
+        <Country>Switzerland</Country>
+        <Age>23</Age>
+        <Points>4720</Points>
+    </Player>
+    <Player rank="5">
+        <Name>Bianca Vanessa Andreescu</Name>
+        <Country>Canada</Country>
+        <Age>19</Age>
+        <Points>4665</Points>
+    </Player>
+
+</WomenRanking2020>

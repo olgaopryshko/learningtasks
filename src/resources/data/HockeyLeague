@@ -1,0 +1,21 @@
+<HockeyLeague>
+    <League name="NHL">
+        <Team>Boston</Team>
+        <Team>St Louis</Team>
+        <Team>Colorado</Team>
+        <Team>Tampa Bay</Team>
+        <Team>Washington</Team>
+        <Team>Philadelphia</Team>
+        <Team>Pittsburgh</Team>
+    </League>
+    <League name="KHL">
+        <Team>CSKA</Team>
+        <Team>SKA</Team>
+        <Team>Jokerit</Team>
+        <Team>Dynamo Msk</Team>
+        <Team>Spartak</Team>
+        <Team>Lokomotiv</Team>
+        <Team>Vityaz</Team>
+        <Team>Torpedo</Team>
+    </League>
+</HockeyLeague>
